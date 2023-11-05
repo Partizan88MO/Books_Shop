@@ -17,9 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
 from random_number import views
+from catalog import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rand/', views.get_random),
+    #path('rand/', views.get_random),
+    path('catalog/', views.get_catalog),    
 ]
