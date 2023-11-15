@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Cart {{ verb }}{% endblock title %}
+
+{% block body %}
+    <h1>Cart</h1>
+    <table class="table table-striped">
+        <tr>
+            <td>good</td>
+            <td>quantity</td>
+            <td>price</td>
+            <td>total price</td>
+            <td>Actions</td>
+        </tr>
+        {% for good_in_cart in cart.goods.all %}
+        <tr>
+            <td>{{ good_in_cart.good.name }}</td>
+            <td>{{ good_in_cart.quantity }}</td>
+            <td>{{ good_in_cart.price }}</td>
+            <td>{{ good_in_cart.total_price }}</td>
+            <td> - </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>Total:</td>
+            <td colspan="2">{{ cart.good_quantity }}</td>
+            <td colspan="2">{{ cart.total_price }}</td>
+        </tr>     
+{% endblock body %}

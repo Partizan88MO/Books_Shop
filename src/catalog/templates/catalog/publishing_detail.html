@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Publishing {{ verb }}{% endblock title %}
+{% block body %}
+    <h1>Publishing detail:</h1>
+    <b>ID:</b> {{ object.pk }}<br>
+    <b>name:</b> {{ object.name }}<br>
+    <b>description:</b> {{ object.description }}<br>
+    </form>
+{% endblock body %}

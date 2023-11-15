@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Anthology {{ verb }}{% endblock title %}
+
+{% block body %}
+    <a href="/catalog/anthology/create/">Create</a>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <td><a href="/catalog/anthology/{{ obj.pk }}">{{ obj.pk }}</a></td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.description }}</td>
+            <td><a href="/catalog/anthology/update/{{ obj.pk }}">Update</a></td>
+            <td><a href="/catalog/anthology/delete/{{ obj.pk }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock body %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Order {{ verb }}{% endblock title %}
+{% block body %}
+    <h1>Order detail:</h1>
+    <b>ID:</b> {{ object.pk }}<br>
+    <b>user:</b> {{ object.user }}<br>
+    <b>summ:</b> {{ object.summ }}<br>
+    <b>order_book:</b> {{ object.order_book }}<br>
+    <b>currency:</b> {{ object.currency }}<br>
+    </form>
+{% endblock body %}

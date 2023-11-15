@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Order {{ verb }}{% endblock title %}
+
+{% block body %}
+    <a href="/basket/order/create/">Create</a>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>User</td>
+            <td>Summ</td>
+            <td>Order_book</td>
+            <td>Currency</td>
+            <td>Actions</td>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <td><a href="/basket/order/{{ obj.pk }}/">{{ obj.pk }}</a></td>
+            <td>{{ obj.user }}</td>
+            <td>{{ obj.summ }}</td>
+            <td>{{ obj.order_book }}</td>
+            <td>{{ obj.currency }}</td>
+            <td><a href="/basket/order/update/{{ obj.pk }}">Update</a></td>
+            <td><a href="/basket/order/delete/{{ obj.pk }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock body %}

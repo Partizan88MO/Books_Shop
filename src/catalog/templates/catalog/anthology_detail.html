@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Anthology {{ verb }}{% endblock title %}
+{% block body %}
+    <h1>Anthology detail:</h1>
+    <b>ID:</b> {{ object.pk }}<br>
+    <b>name:</b> {{ object.name }}<br>
+    <b>description:</b> {{ object.description }}<br>
+    </form>
+{% endblock body %}

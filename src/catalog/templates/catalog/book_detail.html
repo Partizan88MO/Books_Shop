@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Book {{ verb }}{% endblock title %}
+{% block body %}
+    <h1>Book detail:</h1>
+    <b>ID:</b> {{ object.pk }}<br>
+    <b>name:</b> {{ object.name }}<br>
+    <b>price:</b> {{ object.price }}<br>
+    <b>year:</b> {{ object.year }}<br>
+    <b>page:</b> {{ object.page }}<br>
+    <b>binding:</b> {{ object.binding }}<br>
+    <b>format:</b> {{ object.format }}<br>
+    <b>isbn:</b> {{ object.isbn }}<br>
+    <b>rating:</b> {{ object.rating }}<br>
+    <b>weight:</b> {{ object.weight }}<br>
+    <b>age:</b> {{ object.age }}<br>
+    <b>quantity:</b> {{ object.quantity }}<br>
+    <b>active:</b> {{ object.active }}<br>
+    <b>date_change:</b> {{ object.date_change }}<br>
+    <b>date:</b> {{ object.date }}<br>
+    <b>author:</b> {{ object.author }}<br>
+    <b>genre:</b> {{ object.genre }}<br>
+    <b>anthology:</b> {{ object.anthology }}<br>
+    <b>publishing:</b> {{ object.publishing }}<br>
+    <b>description:</b> {{ object.description }}<br>
+    <form action="/basket/cart" method="get">
+        <input type="number" name="quantity" step="1" min="1" value="1">
+        <input type="hidden" name="good" value="{{ object.pk }}">
+        <button type="submit" class="btn btn-success">Add to cart</button>
+    </form>
+{% endblock body %}

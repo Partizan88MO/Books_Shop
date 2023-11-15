@@ -17,14 +17,42 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-
-from random_number import views
-from catalog import views
-
+from catalog import views as cat_views
+from basket import views as bas_views 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('rand/', views.get_random),
-    path('catalog/', views.get_catalog),    
+    path('catalog/book/<int:pk>/', cat_views.BookDetail.as_view()),
+    path('catalog/book/', cat_views.BookList.as_view()),
+    path('catalog/book/create/', cat_views.BookCreate.as_view()), 
+    path('catalog/book/update/<int:pk>/', cat_views.BookUpdate.as_view()),
+    path('catalog/book/delete/<int:pk>/', cat_views.BookDelete.as_view()),
+    path('catalog/publishing/<int:pk>/', cat_views.PublishingDetail.as_view()),
+    path('catalog/publishing/', cat_views.PublishingList.as_view()),
+    path('catalog/publishing/create/', cat_views.PublishingCreate.as_view()), 
+    path('catalog/publishing/update/<int:pk>/', cat_views.PublishingUpdate.as_view()),
+    path('catalog/publishing/delete/<int:pk>/', cat_views.PublishingDelete.as_view()),
+    path('catalog/author/<int:pk>/', cat_views.AuthorDetail.as_view()),
+    path('catalog/author/', cat_views.AuthorList.as_view()),
+    path('catalog/author/create/', cat_views.AuthorCreate.as_view()), 
+    path('catalog/author/update/<int:pk>/', cat_views.AuthorUpdate.as_view()),
+    path('catalog/author/delete/<int:pk>/', cat_views.AuthorDelete.as_view()),
+    path('catalog/anthology/<int:pk>/', cat_views.AnthologyDetail.as_view()),
+    path('catalog/anthology/', cat_views.AnthologyList.as_view()),
+    path('catalog/anthology/create/', cat_views.AnthologyCreate.as_view()), 
+    path('catalog/anthology/update/<int:pk>/', cat_views.AnthologyUpdate.as_view()),
+    path('catalog/anthology/delete/<int:pk>/', cat_views.AnthologyDelete.as_view()),
+    path('catalog/genre/<int:pk>/', cat_views.GenreDetail.as_view()),
+    path('catalog/genre/', cat_views.GenreList.as_view()),
+    path('catalog/genre/create/', cat_views.GenreCreate.as_view()), 
+    path('catalog/genre/update/<int:pk>/', cat_views.GenreUpdate.as_view()),
+    path('catalog/genre/delete/<int:pk>/', cat_views.GenreDelete.as_view()),
+    path('basket/order/<int:pk>/', bas_views.OrderDetail.as_view()),
+    path('basket/order/', bas_views.OrderList.as_view()),
+    path('basket/order/create/', bas_views.OrderCreate.as_view()), 
+    path('basket/order/update/<int:pk>/', bas_views.OrderUpdate.as_view()),
+    path('about-us/', bas_views.AboutUs.as_view()),  
+    path('basket/order/delete/<int:pk>/', bas_views.OrderDelete.as_view()),
+    path('basket/cart/', bas_views.cart),
 ]

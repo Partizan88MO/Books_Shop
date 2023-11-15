@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Book {{ verb }}{% endblock title %}
+
+{% block body %}
+    <a href="/catalog/book/create/">Create</a>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Year</td>
+            <td>Page</td>
+            <td>Binding</td>
+            <td>Format</td>
+            <td>ISBN</td>
+            <td>Rating</td>
+            <td>Weight</td>
+            <td>Age</td>
+            <td>Quantity</td>
+            <td>Active</td>
+            <td>Date_change</td>
+            <td>Date</td>
+            <td>Author</td>
+            <td>Genre</td>
+            <td>Anthology</td>
+            <td>Publishing</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <td><a href="/catalog/book/{{ obj.pk }}">{{ obj.pk }}</a></td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.price }}</td>
+            <td>{{ obj.year }}</td>
+            <td>{{ obj.page }}</td>
+            <td>{{ obj.binding }}</td>
+            <td>{{ obj.format }}</td>
+            <td>{{ obj.isbn }}</td>
+            <td>{{ obj.rating }}</td>
+            <td>{{ obj.weight }}</td>
+            <td>{{ obj.age }}</td>
+            <td>{{ obj.quantity }}</td>
+            <td>{{ obj.active }}</td>
+            <td>{{ obj.date_change }}</td>
+            <td>{{ obj.date }}</td>
+            <td>{{ obj.author }}</td>
+            <td>{{ obj.genre }}</td>
+            <td>{{ obj.anthology }}</td>
+            <td>{{ obj.publishing }}</td>
+            <td>{{ obj.description }}</td>
+            <td><a href="/catalog/book/update/{{ obj.pk }}">Update</a></td>
+            <td><a href="/catalog/book/delete/{{ obj.pk }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock body %}

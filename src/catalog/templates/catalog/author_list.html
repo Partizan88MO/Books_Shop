@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Author {{ verb }}{% endblock title %}
+
+{% block body %}
+    <a href="/catalog/author/create/">Create</a>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <td><a href="/catalog/author/{{ obj.pk }}">{{ obj.pk }}</a></td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.description }}</td>
+            <td><a href="/catalog/author/update/{{ obj.pk }}">Update</a></td>
+            <td><a href="/catalog/author/delete/{{ obj.pk }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock body %}
